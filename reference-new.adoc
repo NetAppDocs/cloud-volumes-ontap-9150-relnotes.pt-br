@@ -1,0 +1,89 @@
+---
+sidebar: sidebar 
+permalink: reference-new.html 
+keywords: 'what"s new, new, features, release notes, enhancements' 
+summary: O Cloud Volumes ONTAP 9.15.0 inclui uma nova melhoria. 
+---
+= Novidades do Cloud Volumes ONTAP 9.15.0
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+O Cloud Volumes ONTAP 9.15.0 inclui novos aprimoramentos.
+
+Recursos e aprimoramentos adicionais também são introduzidos nas versões mais recentes do BlueXP . Consulte https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/whats-new.html["Notas de versão do BlueXP"^] para obter detalhes.
+
+
+
+== 9.15.0 P2 (8 de agosto de 2024)
+
+O patch 9.15.0 P2 já está disponível para o Cloud Volumes ONTAP para todos os provedores de nuvem. O BlueXP  solicitará que você atualize seus sistemas existentes para esta versão de patch.
+
+https://mysupport.netapp.com/site/products/all/details/cloud-volumes-ontap/downloads-tab/download/62632/9.15.0P2["Veja a lista de bugs corrigidos no patch P2"^] (É necessário iniciar sessão no site de suporte da NetApp).
+
+
+
+== 9.15.0 P1 (10 de junho de 2024)
+
+O Cloud Volumes ONTAP 9.15.0 P1 já está disponível na AWS, Azure e Google Cloud. A versão P1 está disponível para implantação e atualização.
+
+Esta versão inclui um novo recurso e um aprimoramento.
+
+
+
+=== Verificação de imagem no Azure
+
+Os recursos de segurança aprimorados estão agora disponíveis para verificar assinaturas de arquivos de imagem do Cloud Volumes ONTAP exportados através do Azure.
+
+Para obter mais informações, link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-azure-image-verification.html["Saiba mais sobre a Verificação de imagem do Azure"^]consulte .
+
+
+
+=== Os blobs de páginas do Azure não são mais compatíveis com novas implantações de pares de alta disponibilidade
+
+A partir do Cloud Volumes ONTAP 9.15.0 P1, os blobs de páginas do Azure não são mais compatíveis com novas implantações de pares de alta disponibilidade. Se você usa atualmente blobs de páginas do Azure em implantações de pares de alta disponibilidade existentes, você pode migrar para tipos de instâncias de VM mais recentes nas VMs da série Edsv4 e VMs da série Edsv5.
+
+link:https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-azure.html#ha-pairs["Saiba mais sobre as configurações compatíveis no Azure"^].
+
+
+
+== Notas de atualização
+
+Leia estas notas para saber mais sobre a atualização para esta versão.
+
+
+
+=== Como atualizar
+
+As atualizações do Cloud Volumes ONTAP devem ser concluídas a partir do BlueXP . Você não deve atualizar o Cloud Volumes ONTAP usando o Gerenciador de sistema ou a CLI. Isso pode afetar a estabilidade do sistema.
+
+link:http://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-updating-ontap-cloud.html["Saiba como atualizar quando o BlueXP  o notificar"^].
+
+
+
+=== Caminho de atualização suportado
+
+Você pode atualizar para o Cloud Volumes ONTAP 9.15.0 a partir da versão 9.14.1. A BlueXP  solicitará que você atualize os sistemas Cloud Volumes ONTAP qualificados para esta versão.
+
+
+
+=== Tempo de inatividade
+
+* A atualização de um sistema de nó único leva o sistema off-line por até 25 minutos, durante os quais a e/S é interrompida.
+* A atualização de um par de HA não causa interrupções e e/S é ininterrupta. Durante esse processo de atualização sem interrupções, cada nó é atualizado em conjunto para continuar fornecendo e/S aos clientes.
+
+
+
+
+=== as instâncias c4, m4 e r4 não são mais compatíveis
+
+Na AWS, os tipos de instância C4, M4 e R4 EC2 não são mais compatíveis com o Cloud Volumes ONTAP. Se você tiver um sistema existente que esteja sendo executado em um tipo de instância C4, M4 ou R4, será necessário alterar para um tipo de instância na família de instâncias C5, M5 ou R5. Não é possível atualizar para esta versão até alterar o tipo de instância.
+
+link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-change-ec2-instance.html["Saiba como alterar o tipo de instância EC2 para Cloud Volumes ONTAP"^].
+
+link:https://mysupport.netapp.com/info/communications/ECMLP2880231.html["Suporte à NetApp"^]Consulte para saber mais sobre o fim da disponibilidade e suporte para esses tipos de instância.
